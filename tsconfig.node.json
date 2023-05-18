@@ -1,0 +1,14 @@
+// Viteデフォルトで作成される設定ファイル
+// node.js環境下で動作するモジュールの設定
+// [src]フォルダ配下以外のモジュールが対象
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "vite.config.ts"
+  ]
+}

@@ -1,0 +1,81 @@
+// typescriptの設定ファイル
+// 動作環境がブラウザである[src]フォルダ配下のモジュールが対象
+// トランスパイルはtypescriptではなくesbuildが使用されるが
+// ソースの型チェックにはtsconfigが利用されるため想定している環境を設定する。
+// (一部のプロパティはesbuildが参照している)
+{
+  "compilerOptions": {
+    // typescriptをjavascriptに変換する際、javascriptのバージョンを指定する。
+    // viteではjavascript変換にesbuildを利用するため実際には使用されないが、
+    // targetの設定値に依存したオプションが他に存在するため正しい値を設定する。
+    // [esbuild非参照]
+    "target": "ES6",
+    // ClassFieldの実装をECMAScriptの仕様に準拠させるためのオプション。
+    // 条件としてtargetがES5以上であること。
+    // esbuildではこのオプションを参照してトランスパイルされる。
+    // [esbuild参照]
+    "useDefineForClassFields": true,
+    // 追加で必要になる型定義。
+    // デフォルトのまま変更なし。
+    // [esbuild非参照]
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    // .ts.tsxファイルだけでなくJavaScriptファイルを
+    // プロジェクトへインポートするためのオプション。
+    // [esbuild非参照]
+    "allowJs": false,
+    // 型定義ファイルのチェックをスキップするためのオプション。
+    // すべてのd.tsファイルの完全なチェックを行わずに、
+    // アプリケーション内のソースコードで明示的に参照しているコードの型をチェックを行う。
+    // [esbuild非参照]
+    "skipLibCheck": true,
+    // commonjs(cjs)との互換を保つためのオプション。
+    // cjsは対象としてないため無効とする。
+    // [esbuild非参照]
+    "esModuleInterop": false,
+    // デフォルトのエクスポートなしでデフォルトのインポートを許可するオプション。
+    // React全般でこの設定は一般的に有効化。
+    // [esbuild非参照]
+    "allowSyntheticDefaultImports": true,
+    // プログラムの正しさを強く保証するための幅広い型チェックの挙動を有効化。
+    // [esbuild非参照]
+    "strict": true,
+    // ファイル名の大文字小文字を区別するオプション。
+    // [esbuild非参照]
+    "forceConsistentCasingInFileNames": true,
+    // typescriptをjavascriptに変換する際、モジュール形式を指定する。
+    // [esbuild非参照]
+    "module": "ESNext",
+    // Import 対象のソースコード・型定義ファイルをどのように検索するかを指定する。
+    // "Node"であれば拡張子を省略した相対パス探索が行われる
+    // [esbuild非参照]
+    "moduleResolution": "Node",
+    // jsonファイルをインポート可能となるオプション。
+    // [esbuild非参照]
+    "resolveJsonModule": true,
+    // typescriptをjavascriptに変換する際
+    // 正しく解釈できない特定のコードが存在した場合に
+    // 警告するオプション
+    // [esbuild非参照]
+    "isolatedModules": true,
+    // JavaScript ソースコード、ソースマップ、型定義のファイルを出力しないオプション
+    // これによりbabelやesbuild等javascript変換に別のツールを利用することができる
+    // [esbuild非参照]
+    "noEmit": true,
+    // jsxを使用する場合のコンパイル・オプション
+    // "react-jsx"とすることでReactのimportが不要になる
+    // [esbuild非参照]
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
