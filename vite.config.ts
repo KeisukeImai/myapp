@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [react({
     // Exclude storybook stories and test modules
     exclude: /\.(stories|test)\.(t|j)sx?$/,
+    // emotion設定
+    jsxImportSource: '@emotion/react',
   })],
   build: {
     outDir: "./build",

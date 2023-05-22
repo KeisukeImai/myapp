@@ -22,6 +22,8 @@
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
+    // emotionのcssプロパティを有効化
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
     // 加算処理(+)のオペランドの型が異なる場合のエラーを無効化
     "@typescript-eslint/restrict-plus-operands": "off",
     // awaitが存在しない場合voidによる記載と即時実行形式の許可

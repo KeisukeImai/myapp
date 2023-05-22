@@ -68,7 +68,9 @@
     // jsxを使用する場合のコンパイル・オプション
     // "react-jsx"とすることでReactのimportが不要になる
     // [esbuild非参照]
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    // emotion設定
+    "jsxImportSource": "@emotion/react"
   },
   "include": [
     "src"
