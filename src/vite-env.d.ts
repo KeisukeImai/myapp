@@ -15,6 +15,12 @@ interface ImportMetaEnv {
   readonly PROD: boolean,
   /** 開発環境で動作しているかどうか */
   readonly DEV: boolean,
+
+  // 
+  // 新たに定義した環境変数軍
+  //
+  /** クライアント開発モード（MSWにてAPIをMock化） */
+  readonly VITE_CLIENT_ONLY: boolean,
 }
 
 interface ImportMeta {
