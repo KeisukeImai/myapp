@@ -2,7 +2,7 @@
 const App = (): JSX.Element => {
   return (
     <div>
-      Hello, world!aaa
+      Hello, world!
     </div>
   );
 };
